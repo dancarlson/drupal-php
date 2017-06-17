@@ -8,6 +8,7 @@ ENV PHP_OUTPUT_BUFFERING 16384
 
 RUN su-exec www-data composer global require drush/drush && \
     su-exec www-data composer clear-cache && \
+    curl -sS -o https://platform.sh/cli/installer | php && \
     curl https://drupalconsole.com/installer -L -o drupal.phar && \
     mv drupal.phar /usr/local/bin/drupal && \
     chmod +x /usr/local/bin/drupal && \
